@@ -238,7 +238,7 @@ export default {
       page: 1,
       tableData: [],
       upLoadData: {
-        url: "apis/Activitiesinfo/addActivities",
+        url: "api/Activitiesinfo/addActivities",
         title: "",
         adsurl: "",
         content: "",
@@ -251,7 +251,7 @@ export default {
         adsurl:"",
         content:"",
         over_time:"",
-        url:"apis/Activitiesinfo/editActivities"
+        url:"api/Activitiesinfo/editActivities"
       },
       serach:{key:''}
     };
@@ -368,7 +368,7 @@ export default {
           type:"error"
         })
       }
-      this.$refs.upload.submit();
+      // this.$refs.upload.submit();
       this.uploadStatue = false;
       this.shownewactive = false;
     },
@@ -408,6 +408,12 @@ export default {
       if(this.$refs.uploads.uploadFiles.length){
         this.$refs.uploads.submit();
       }else{
+        if(this.$refs.uploads && this.$refs.uploads.uploadFiles.length){
+          this.$refs.upload.forEach(item=>{
+            item.clearFiles();
+          });
+          this.$refs.uploads.submit();
+        }
           const title = this.updateData.title
           const adsurl = this.updateData.adsurl
           const content = this.updateData.content
@@ -432,6 +438,8 @@ export default {
 
           })
       }
+      this.showupdateactive = false;
+      this.getActListInfo();
     },
     updateactivefunc(index,row) {
       this.updateData.title = row.title

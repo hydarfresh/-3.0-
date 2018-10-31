@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getMsgList(page) {
   return request({
-    url: 'apis/msginfo/getMsgList',
+    url: 'api/msginfo/getMsgList',
     method: 'post',
     data: {
       page
@@ -11,7 +11,7 @@ export function getMsgList(page) {
 }
 export function addMsg(title, content) {
   return request({
-    url: 'apis/msginfo/addmsginfo',
+    url: 'api/msginfo/addmsginfo',
     method: 'post',
     data: {
       title,
@@ -21,7 +21,7 @@ export function addMsg(title, content) {
 }
 export function delMsg(id) {
   return request({
-    url: 'apis/msginfo/delmsginfo',
+    url: 'api/msginfo/delmsginfo',
     method: 'post',
     data: {
       id
@@ -30,7 +30,7 @@ export function delMsg(id) {
 }
 export function editMsg(title, content, id) {
   return request({
-    url: 'apis/msginfo/editMsgInfo',
+    url: 'api/msginfo/editMsgInfo',
     method: 'post',
     data: {
       title,
@@ -44,7 +44,7 @@ export function editMsg(title, content, id) {
 
 export function doSerach(key) {
   return request({
-    url: 'apis/msginfo/serach',
+    url: 'api/msginfo/serach',
     method: 'post',
     data: {
       key

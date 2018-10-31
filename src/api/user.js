@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getUser(page) {
   return request({
-    url: 'apis/user/getuserlist',
+    url: 'api/user/getuserlist',
     method: 'post',
     data: {
       page
@@ -11,7 +11,7 @@ export function getUser(page) {
 }
 export function delUser(uid) {
   return request({
-    url: 'apis/user/deluser',
+    url: 'api/user/deluser',
     method: 'post',
     data: {
       uid
@@ -21,7 +21,7 @@ export function delUser(uid) {
 /** 搜索接口 */
 export function doSerach(key) {
   return request({
-    url: 'apis/user/serach',
+    url: 'api/user/serach',
     method: 'post',
     data: {
       key

@@ -1,15 +1,20 @@
 <template>
   <div class="menu-wrapper">
     <template>
-      <div style="width:180px;height:70px;background:rgba(0,33,64,1);padding-top:20px">
-        <div style="width:50px;height:38px;float:left;padding-left:10px ">
+      <div style="width:180px;height:50px;background:#09c;padding-top:20px">
+        <span style="color:#fff">全播视频业务服务器</span>
+        <div style="padding-left:20px">
+         <div style="font-size:16px;color:rgba(255,255,255,1);font-family:PingFang-SC-Regular;">全播后台管理系统</div>
+        </div>
+        <!-- <div style="width:50px;height:38px;float:left;padding-left:10px ">
           <img :src="logoImg" alt="" style="width:136px; ">
-          </div>
+          </div> -->
         <!-- <div style="float:left;width:100px;height:38px;padding-left:20px">
           <div style="font-size:16px;color:rgba(255,255,255,1);font-family:PingFang-SC-Regular;">全播</div>
           <div style="font-size:13px;color:rgba(119,154,199);font-family:PingFang-SC;"> 后台管理系统</div>
         </div> -->
       </div>
+      
     </template>
 
     <template v-for="item in routes" v-if="!item.hidden&&item.children">

@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getkaipingList(page) {
   return request({
-    url: 'apis/adscontent/getAdsList',
+    url: 'api/adscontent/getAdsList',
     method: 'post',
     data: {
       page
@@ -11,7 +11,7 @@ export function getkaipingList(page) {
 }
 export function editkaiping(adsname, adurl, id) {
   return request({
-    url: 'apis/adscontent/editAds',
+    url: 'api/adscontent/editAds',
     method: 'post',
     data: {
       adsname,
@@ -22,7 +22,7 @@ export function editkaiping(adsname, adurl, id) {
 }
 export function delkaiping(id) {
   return request({
-    url: 'apis/adscontent/delAds',
+    url: 'api/adscontent/delAds',
     method: 'post',
     data: {
       id
@@ -33,7 +33,7 @@ export function delkaiping(id) {
 
 export function doSerach(key) {
   return request({
-    url: 'apis/adscontent/serach',
+    url: 'api/adscontent/serach',
     method: 'post',
     data: {
       key

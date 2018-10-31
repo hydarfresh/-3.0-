@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {    //将www.exaple.com印射为/apis
-        target: 'http://cdn.qbitv.net/api',  // 接口域名
+        target: 'http://quanbo.qbitv.net/api',  // 接口域名
         changeOrigin: true,  //是否跨域
         pathRewrite: {
           '^/api': ''   //需要rewrite的,

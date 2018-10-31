@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getSugList(page) {
   return request({
-    url: 'apis/suggestion/getSuggestionList',
+    url: 'api/suggestion/getSuggestionList',
     method: 'post',
     data: {
       page
@@ -11,7 +11,7 @@ export function getSugList(page) {
 }
 export function delSug(id) {
   return request({
-    url: 'apis/suggestion/delsuggestion',
+    url: 'api/suggestion/delsuggestion',
     method: 'post',
     data: {
       id
@@ -21,7 +21,7 @@ export function delSug(id) {
 /** 搜索接口 */
 export function doSerach(key) {
   return request({
-    url: 'apis/suggestion/serach',
+    url: 'api/suggestion/serach',
     method: 'post',
     data: {
       key

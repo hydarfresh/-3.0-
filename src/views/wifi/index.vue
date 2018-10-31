@@ -9,11 +9,14 @@
 
 		<div class="cent">
 			<el-table :data="tableData" style="width: 100%" stripe>
-				<el-table-column prop="date" label="频道ID" width="180">
+				<el-table-column prop="date" label="自定义" width="180">
+					
 				</el-table-column>
 				<el-table-column prop="name" label="自定义" width="180">
+					
 				</el-table-column>
 				<el-table-column prop="address" label="自定义">
+					
 				</el-table-column>
 				<el-table-column fixed="right" label="自定义操作" width="200">
 					<template slot-scope="scope">

@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getAdminList(page) {
   return request({
-    url: 'apis/admin/getAdminList',
+    url: 'api/admin/getAdminList',
     method: 'post',
     data: {
       page
@@ -11,7 +11,7 @@ export function getAdminList(page) {
 }
 export function delAdmin(id) {
   return request({
-    url: 'apis/admin/deluser',
+    url: 'api/admin/deluser',
     method: 'post',
     data: {
       id
@@ -21,7 +21,7 @@ export function delAdmin(id) {
 
 export function addAdmin(username, password, nickname) {
   return request({
-    url: 'apis/admin/adduser',
+    url: 'api/admin/adduser',
     method: 'post',
     data: {
       username,
@@ -33,7 +33,7 @@ export function addAdmin(username, password, nickname) {
 
 export function oppenAdmin(type, id) {
   return request({
-    url: 'apis/admin/forbiddenuser',
+    url: 'api/admin/forbiddenuser',
     method: 'post',
     data: {
       type,
@@ -43,7 +43,7 @@ export function oppenAdmin(type, id) {
 }
 export function updatePwd(id, password) {
   return request({
-    url: 'apis/admin/updatepassword',
+    url: 'api/admin/updatepassword',
     method: 'post',
     data: {
       id,
@@ -55,7 +55,7 @@ export function updatePwd(id, password) {
 /** 查询接口 */
 export function doSerach(key) {
   return request({
-    url: 'apis/admin/serach',
+    url: 'api/admin/serach',
     method: 'post',
     data: {
       key
@@ -64,7 +64,7 @@ export function doSerach(key) {
 }
 // export function updatePwd(key) {
 //   return request({
-//     url: 'apis/admin/updatepassword',
+//     url: 'api/admin/updatepassword',
 //     method: 'post',
 //     data: {
 //       key

@@ -2,21 +2,29 @@
 	<div>
 
 		<div style="background-color: white;height: 60px;">
-			<span style="line-height: 60px;margin-left: 20px;font-size:18px;color:black">资讯管理&nbsp;/&nbsp;分类管理</span>
-			<el-button type="primary" style="float: right;margin: 10px 30px 10px 0;" @click="dialogFormVisible = true">+&nbsp;&nbsp;添加分类</el-button>
-			<!-- 点击新增 -->
-			<el-dialog title="添加分类" :visible.sync="dialogFormVisible">
+			<span style="line-height: 60px;margin-left: 20px;font-size:18px;color:black">资讯管理&nbsp;/&nbsp;资讯列表</span>
+			<el-button type="primary" style="float: right;margin: 10px 30px 10px 0;" @click="dialogFormVisible = true">+&nbsp;&nbsp;上传资讯</el-button>
+			<!-- 上传 -->
+			<el-dialog title="添加资讯" :visible.sync="dialogFormVisible">
 				<div class="addalbum_box">
 					<el-form :model="form" label-width="100px" >
-						<el-form-item label="排序号:" >
-							<el-input v-model="form.name" placeholder="请输入排序号(数据越大越靠前)" style="width:80%"></el-input>
+						<el-form-item label="资讯标题:" >
+							<el-input v-model="form.name" placeholder="请输入资讯标题" style="width:80%"></el-input>
 						</el-form-item>
-						<el-form-item label="分类名称:" >
-							<el-input v-model="form.name" placeholder="请输入分类名称" style="width:80%"></el-input>
+						<el-form-item label="分类:" >
+							<el-input v-model="form.name" placeholder="请选择分类" style="width:80%"></el-input>
 						</el-form-item>
+						<el-row>
+							<quill-editor
+								v-model="content"
+								:option="editorOption"
+								@blur="onEditorBlur($event)"
+								@focus="onEditorFocus($event)"
+								@change="onEditorChange($event)">
+							</quill-editor>
+						</el-row>
 					</el-form>
 				</div>
-					
 				<div slot="footer" class="dialog-footer" style="margin-top:-20px;">
 					<el-button @click="dialogFormVisible = false">取 消</el-button>
 					<el-button type="primary" @click="dialogFormVisible = false">保 存</el-button>
@@ -26,15 +34,27 @@
 		</div>
 
 		<div class="cent">
-			<el-table :data="tableData" style="width: 100%;margin-left:1%" stripe>
+			<el-table :data="tableData" style="width: 100%" stripe>
 				<el-table-column prop="date" label="排序号" width="180">
-					1
+
 				</el-table-column>
-				<el-table-column prop="name" label="分类名称" width="180">
-					甜蜜暴击
+				<el-table-column prop="name" label="资讯ID" width="180">
+
+				</el-table-column>
+				<el-table-column prop="title" label="资讯标题">
+
+				</el-table-column>
+				<el-table-column prop="class" label="所属分类">
+
 				</el-table-column>
 				<el-table-column prop="address" label="添加时间">
-					2018.02.21 15：13
+
+				</el-table-column>
+				<el-table-column prop="image" label="资讯图片">
+					<template slot-scope="scope">
+						<el-button type="text" size="small" >预览图片</el-button>
+						
+					</template>
 				</el-table-column>
 				<el-table-column fixed="right" label="操作" width="200">
 					<template slot-scope="scope">
@@ -44,21 +64,27 @@
 					</template>
 				</el-table-column>
 			</el-table>
-
-			
-			<!-- 编辑弹框 -->
+			<!-- 编辑 -->
 			<el-dialog title="编辑分类" :visible.sync="dialogFormVisible2">
 				<div class="addalbum_box">
-					<el-form :model="form2" label-width="100px">
-						<el-form-item label="排序号:" >
-							<el-input v-model="form2.name" placeholder="请输入排序号(数据越大越靠前)" style="width:80%"></el-input>
+					<el-form :model="form" label-width="100px" >
+						<el-form-item label="资讯标题:" >
+							<el-input v-model="form.name" placeholder="请输入资讯标题" style="width:80%"></el-input>
 						</el-form-item>
-						<el-form-item label="分类名称:" >
-							<el-input v-model="form2.name" placeholder="请输入分类名称" style="width:80%"></el-input>
+						<el-form-item label="分类:" >
+							<el-input v-model="form.name" placeholder="请选择分类" style="width:80%"></el-input>
 						</el-form-item>
+						<el-row>
+							<quill-editor
+								v-model="content"
+								:option="editorOption"
+								@blur="onEditorBlur($event)"
+								@focus="onEditorFocus($event)"
+								@change="onEditorChange($event)">
+							</quill-editor>
+						</el-row>
 					</el-form>
 				</div>
-					
 				<div slot="footer" class="dialog-footer" style="margin-top:-20px;">
 					<el-button @click="dialogFormVisible2 = false">取 消</el-button>
 					<el-button type="primary" @click="dialogFormVisible2 = false">保 存</el-button>
@@ -73,18 +99,24 @@
 </template>
 
 <script>
+	import {quillEditor} from 'vue-quill-editor'
 	export default {
 		data() {
 			return {
-
+				labelPosition:'right',
 				tableData: [{
 					date: '1',
-					name: '甜蜜暴击',
-					address: '2018.02.21 15:13'
+					name: '123123',
+					address: '2018.02.21 15:13',
+					title:"甜蜜暴击",
+					class:"电影",
+					
 				}, {
 					date: '2',
-					name: '甜蜜暴击2',
-					address: '2018.02.21 15:17'
+					name: '123123123',
+					address: '2018.02.21 15:17',
+					title:"甜蜜暴击2",
+					class:"电影2",
 				}],
 
 				dialogTableVisible: false,
@@ -115,7 +147,9 @@
 				},
 				formLabelWidth2: '120px',
 
-				dialogVisible3: false
+				dialogVisible3: false,
+				content:'',
+				editorOption:{}
 			}
 		},
 
@@ -126,6 +160,11 @@
 						done();
 					})
 					.catch(_ => {});
+			},
+			onEditorBlur(editor){},
+			onEditorFocus(editor){},
+			onEditorChange({editor,html,text}){
+
 			}
 		}
 
@@ -140,6 +179,7 @@
 		height: 740px;
 		margin-right: 24px;
 	}
+	
 	.myPage {
 		margin-top: 40px;
 	}
@@ -148,5 +188,11 @@
         border-bottom: 1px solid #eee;
 		padding: 20px 0px;
 		margin-top:-20px;
+		height:450px;
     }
+	.quill-editor{
+		height:200px;
+		width:80%;
+		margin-left:3%
+	}
 </style>

@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getActList(page) {
   return request({
-    url: 'apis/activitiesinfo/getactivitieslist',
+    url: 'api/activitiesinfo/getactivitieslist',
     method: 'post',
     data: {
       page
@@ -11,7 +11,7 @@ export function getActList(page) {
 }
 export function addAct(id, title, adsurl, content, over_time) {
   return request({
-    url: 'apis/Activitiesinfo/addActivities',
+    url: 'api/Activitiesinfo/addActivities',
     method: 'post',
     data: {
       id,
@@ -24,7 +24,7 @@ export function addAct(id, title, adsurl, content, over_time) {
 }
 export function editAct(title, adsurl, content, over_time, aid) {
   return request({
-    url: 'apis/Activitiesinfo/editActivities',
+    url: 'api/Activitiesinfo/editActivities',
     method: 'post',
     data: {
       title,
@@ -37,7 +37,7 @@ export function editAct(title, adsurl, content, over_time, aid) {
 }
 export function delAct(aid) {
   return request({
-    url: 'apis/Activitiesinfo/delActivities',
+    url: 'api/Activitiesinfo/delActivities',
     method: 'post',
     data: {
       aid
@@ -47,7 +47,7 @@ export function delAct(aid) {
 
 export function doSerach(key) {
   return request({
-    url: 'apis/Activitiesinfo/serach',
+    url: 'api/Activitiesinfo/serach',
     method: 'post',
     data: {
       key

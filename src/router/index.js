@@ -40,18 +40,48 @@ export const constantRouterMap = [{
     name: 'dashboard',
     redirect: '/dashboard',
     meta: {
-      title: '数据',
-      icon: 'tree'
+      title: '首页',
+      icon: ''
     },
-    children: [{
+    children: [
+    {
       path: 'dashboard',
       meta: {
-        title: '数据',
-        icon: 'icon_menu_data'
+        title: '点播',
+        icon: ''
       },
       component: () =>
         import ('@/views/dashboard/index')
-    }]
+    },
+    {
+      path: 'Livebroadcast',
+      meta: {
+        title: '直播',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/dashboard/Livebroadcast')
+    },
+    {
+      path: 'Book',
+      meta: {
+        title: '图书',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/dashboard/Book')
+    },
+    {
+      path: 'news',
+      meta: {
+        title: '资讯',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/dashboard/news')
+    }
+    
+    ]
   },
   {
     path: '',
@@ -59,18 +89,47 @@ export const constantRouterMap = [{
     name: 'adminlist',
     redirct: 'adminlist',
     meta: {
-      title: '管理员列表',
+      title: '资讯管理',
       icon: ''
     },
-    children: [{
+    children: [
+    {
       path: 'adminlist',
       meta: {
-        title: '管理员列表',
-        icon: 'icon_menu_admin'
+        title: '分类管理',
+        icon: ''
       },
       component: () =>
         import ('@/views/adminlist/index')
-    }]
+    },
+     {
+      path: 'classification',
+      meta: {
+        title: '资讯列表',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/adminlist/classification')
+    },
+    {
+      path: 'zhuanti',
+      meta: {
+        title: '专题管理',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/adminlist/zhuanti')
+    },
+    {
+      path: 'shenhe',
+      meta: {
+        title: '评论审核',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/adminlist/shenhe')
+    }
+    ]
   },
   {
     path: '',
@@ -78,13 +137,13 @@ export const constantRouterMap = [{
     name: 'ads',
     redirct: 'ads',
     meta: {
-      title: '广告管理',
-      icon: 'icon_menu_ad'
+      title: '点播资源管理',
+      icon: ''
     },
     children: [{
         path: 'banner',
         meta: {
-          title: 'banner管理',
+          title: '分类管理',
           icon: ''
         },
         component: () =>
@@ -93,7 +152,7 @@ export const constantRouterMap = [{
       {
         path: 'kaiping',
         meta: {
-          title: '开屏广告管理',
+          title: '资源列表',
           icon: ''
         },
         component: () =>
@@ -107,18 +166,29 @@ export const constantRouterMap = [{
     name: 'act',
     redirct: 'act',
     meta: {
-      title: '数据',
-      icon: 'tree'
+      title: '图书管理',
+      icon: ''
     },
-    children: [{
+    children: [
+    {
       path: 'act',
       meta: {
-        title: '活动管理',
-        icon: 'icon_menu_activity'
+        title: '推荐管理',
+        icon: ''
       },
       component: () =>
         import ('@/views/act/index')
-    }]
+    },
+    {
+      path: 'fileList',
+      meta: {
+        title: '资源列表',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/act/fileList')
+    }
+    ]
   },
   {
     path: '',
@@ -126,17 +196,36 @@ export const constantRouterMap = [{
     name: 'msg',
     redirect: 'msg',
     meta: {
-      title: '数据',
-      icon: 'tree'
+      title: '投票调查',
+      icon: ''
     },
     children: [{
       path: 'msg',
       meta: {
-        title: '消息管理',
-        icon: 'icon_menu_message'
+        title: '投票调查',
+        icon: ''
       },
       component: () =>
         import ('@/views/msg/index')
+    }]
+  },
+  {
+    path: '',
+    component: Layout,
+    name: 'UserManagement',
+    redirect: 'UserManagement',
+    meta: {
+      title: '用户管理',
+      icon: ''
+    },
+    children: [{
+      path: 'UserManagement',
+      meta: {
+        title: '用户管理',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/UserManagement/index')
     }]
   },
   {
@@ -145,13 +234,13 @@ export const constantRouterMap = [{
     name: 'user',
     redirect: '/user',
     meta: {
-      title: '用户管理',
-      icon: 'icon_menu_user'
+      title: '内容管理',
+      icon: ''
     },
     children: [{
         path: 'msg',
         meta: {
-          title: '用户信息',
+          title: '资讯审核',
           icon: ''
         },
         component: () =>
@@ -160,7 +249,7 @@ export const constantRouterMap = [{
       {
         path: 'sug',
         meta: {
-          title: '意见反馈',
+          title: '视频审核',
           icon: ''
         },
         component: () =>
@@ -174,51 +263,114 @@ export const constantRouterMap = [{
     name: 'version',
     redirect: 'version',
     meta: {
-      title: '数据',
-      icon: 'tree'
+      title: '收录拆条管理',
+      icon: ''
     },
     children: [{
       path: 'version',
       meta: {
-        title: '版本管理',
-        icon: 'icon_menu_version'
+        title: '收录拆条管理',
+        icon: ''
       },
       component: () =>
         import ('@/views/version/index')
     }]
   },
-  // {
-  //   path: '/example',
-  //   component: Layout,
-  //   redirect: '/example/table',
-  //   name: 'Example',
-  //   meta: {
-  //     title: 'Example',
-  //     icon: 'example'
-  //   },
-  //   children: [{
-  //       path: 'table',
-  //       name: 'Table',
-  //       component: () =>
-  //         import ('@/views/table/index'),
-  //       meta: {
-  //         title: 'Table',
-  //         icon: 'table'
-  //       }
-  //     },
-  //     {
-  //       path: 'tree',
-  //       name: 'Tree',
-  //       component: () =>
-  //         import ('@/views/tree/index'),
-  //       meta: {
-  //         title: 'Tree',
-  //         icon: 'tree'
-  //       }
-  //     }
-  //   ]
-  // },
-
+  {
+    path: '/wifi',
+    component: Layout,
+    name: 'version',
+    redirect: 'version',
+    meta: {
+      title: 'wifi终端管理',
+      icon: ''
+    },
+    children: [{
+      path: 'version',
+      meta: {
+        title: 'wifi终端管理',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/wifi/index')
+    }]
+  },
+	 {
+    path: '/tongji',
+    component: Layout,
+    name: 'tongji',
+    redirect: '/tongji',
+    meta: {
+      title: '统计',
+      icon: ''
+    },
+    children: [{
+        path: 'index',
+        meta: {
+          title: '日活',
+          icon: ''
+        },
+        component: () =>
+          import ('@/views/tongji/index')
+      },
+      {
+        path: 'mouth',
+        meta: {
+          title: '月活',
+          icon: ''
+        },
+        component: () =>
+          import ('@/views/tongji/mouth')
+      },
+      {
+        path: 'number',
+        meta: {
+          title: '安装量',
+          icon: ''
+        },
+        component: () =>
+          import ('@/views/tongji/number')
+      }
+    ]
+  },
+  {
+    path: '/tuisong',
+    component: Layout,
+    name: 'tuisong',
+    redirect: 'version',
+    meta: {
+      title: '推送',
+      icon: ''
+    },
+    children: [{
+      path: 'index',
+      meta: {
+        title: '推送',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/tuisong/index')
+    }]
+  },
+  {
+    path: '/fankui',
+    component: Layout,
+    name: 'fankui',
+    redirect: 'version',
+    meta: {
+      title: '用户反馈管理',
+      icon: ''
+    },
+    children: [{
+      path: 'index',
+      meta: {
+        title: '用户反馈管理',
+        icon: ''
+      },
+      component: () =>
+        import ('@/views/fankui/index')
+    }]
+  }
   // {
   //   path: '*',
   //   redirect: '/404',
@@ -227,7 +379,7 @@ export const constantRouterMap = [{
 ]
 
 export default new Router({
-  // mode: 'history', //后端支持可开
+  mode: 'history', //后端支持可开
   scrollBehavior: () => ({
     y: 0
   }),
